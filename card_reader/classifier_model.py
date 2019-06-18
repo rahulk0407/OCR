@@ -91,7 +91,7 @@ print(model.summary())
 from keras.optimizers import RMSprop
 from keras.callbacks import ModelCheckpoint, EarlyStopping
                    
-checkpoint = ModelCheckpoint("/creditcard.h5",
+checkpoint = ModelCheckpoint("/creditcard.h5",    #use full path here
                              monitor="val_loss",
                              mode="min",
                              save_best_only = True,
@@ -124,4 +124,4 @@ history = model.fit_generator(
     validation_data = validation_generator,
     validation_steps = nb_validation_samples // batch_size)
 
-model.save("/creditcard.h5")
+model.save("/creditcard.h5")  #use full path here
