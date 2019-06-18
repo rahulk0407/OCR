@@ -145,7 +145,7 @@ cv2.destroyAllWindows()
 
 
 
-# Creating 2000 Images for each digit in creditcard_digits2 - TRAINING DATA
+# Creating 1000 Images for each digit in creditcard_digits2 - TRAINING DATA
 
 cc1 = cv2.imread('creditcard_digits2.jpg', 0)
 _, th2 = cv2.threshold(cc1, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
@@ -176,6 +176,8 @@ for i in range(0,10):
         #cv2.imshow("otsu", roi_otsu)
 
 cv2.destroyAllWindows()
+
+
 #test data
 cc1 = cv2.imread('creditcard_digits2.jpg', 0)
 _, th2 = cv2.threshold(cc1, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
