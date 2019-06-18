@@ -42,8 +42,7 @@ train_datagen = ImageDataGenerator(
       horizontal_flip = False,        # randonly flips the image
       fill_mode = 'nearest')         # uses the fill mode nearest to fill gaps created by the above
 
-# Specify criteria about our training data, such as the directory, image size, batch size and type 
-# automagically retrieve images and their classes for train and validation sets
+
 train_generator = train_datagen.flow_from_directory(
         train_data_dir,
         target_size = (img_width, img_height),
@@ -92,7 +91,7 @@ print(model.summary())
 from keras.optimizers import RMSprop
 from keras.callbacks import ModelCheckpoint, EarlyStopping
                    
-checkpoint = ModelCheckpoint("/home/deeplearningcv/DeepLearningCV/Trained Models/creditcard.h5",
+checkpoint = ModelCheckpoint("/creditcard.h5",
                              monitor="val_loss",
                              mode="min",
                              save_best_only = True,
@@ -114,7 +113,7 @@ model.compile(loss = 'categorical_crossentropy',
 
 nb_train_samples = 20000
 nb_validation_samples = 4000
-epochs = 5
+epochs = 5 #use gpu, cpu may take upto 40 mins
 batch_size = 16
 
 history = model.fit_generator(
@@ -125,4 +124,4 @@ history = model.fit_generator(
     validation_data = validation_generator,
     validation_steps = nb_validation_samples // batch_size)
 
-model.save("/home/deeplearningcv/DeepLearningCV/Trained Models/creditcard.h5")
+model.save("/creditcard.h5")
